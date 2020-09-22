@@ -1,7 +1,12 @@
 <div class="container main-container">
+  <div class="col-md-12 text-right">
+    <button class="btn btn-outline-danger" *ngIf="getAuth.currentUser" (click)="logout()">Salir</button>
+  </div>
   <h1>FireChat</h1>
   <hr>
-  <div class="chat-window">
+  <app-login *ngIf="!getAuth.currentUser"></app-login>
+
+  <div *ngIf="getAuth.currentUser" class="chat-window">
     <app-chat></app-chat>
   </div>
 </div>
